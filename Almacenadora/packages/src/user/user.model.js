@@ -27,6 +27,11 @@ const userSchema = Schema(
             unique: [true, 'This phone already exist in database'],
             maxLength: [8, `Can't be overcome 8 numbers`]
         },
+        address:{
+            type: String,
+            required: [true, 'Address is required'],
+            maxLength: [256, `Can't be overcome 256 numbers`]
+        },
         role:{
             type: String,
             required: [true, 'Role is required'],

@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from 'cors'
-
+import categoryRoutes from '../src/category/category.routes.js'
 
 const configs = (app)=>{
     app.use(express.json())
@@ -10,10 +10,10 @@ const configs = (app)=>{
     app.use(cors())
     app.use(helmet())
     app.use(morgan('dev'))
-    app.use(limiter)
 }
 
 const routes = (app)=>{
+    app.use(categoryRoutes)
 
 }
 

@@ -1,6 +1,6 @@
 import Category from '../category/category.model.js'
 
-export const test = (res)=>{
+export const test = (req, res)=>{
     console.log('Categories is running')
     res.send({message: 'Categories is running'})
 }
@@ -50,7 +50,7 @@ export const getCategoryById = async(req,res)=>{
     }
 }
 
-export const updateCategorie = async (req, res) => {
+export const updateCategory = async (req, res) => {
     try {
         const {id} = req.params
         const data = req.body
@@ -68,7 +68,7 @@ export const updateCategorie = async (req, res) => {
     }
 }
 
-export const deleteCategorie = async (req, res) => {
+export const deleteCategory = async (req, res) => {
     try {
         const {id} = req.params
         const deletedCategory = await Category.findByIdAndDelete(id)
