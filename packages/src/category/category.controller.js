@@ -58,7 +58,7 @@ export const updateCategory = async (req, res) => {
         if (!updatedCategory) return res.status(404).send(
             {
                 success:false,
-                message:'Categorie not found'
+                message:'Category not found'
             }
         )
         return res.send({success:true, message:'Category updated successfully', updatedCategory})

@@ -3,6 +3,10 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from 'cors'
 import categoryRoutes from '../src/category/category.routes.js'
+import clientsRoutes from '../src/clients/clients.routes.js'
+import employeeRoutes from '../src/clients/clients.routes.js'
+import productsRoutes from '../src/products/products.routes.js'
+import suppliersRoutes from '../src/suppliers/supliers.routes.js'
 
 const configs = (app)=>{
     app.use(express.json())
@@ -14,7 +18,10 @@ const configs = (app)=>{
 
 const routes = (app)=>{
     app.use(categoryRoutes)
-
+    app.use(clientsRoutes)
+    app.use(employeeRoutes)
+    app.use(productsRoutes)
+    app.use(suppliersRoutes)
 }
 
 export const initServer = ()=>{

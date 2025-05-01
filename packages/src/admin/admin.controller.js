@@ -21,6 +21,5 @@ const addAdmin = async () => {
         console.error('General error', e)
     }
 }
- 
 addAdmin()
 
