@@ -3,15 +3,15 @@ import Category from '../category/category.model.js'
 
 export const addProduct = async (req, res) => {
     try {
-        let { category, ...data } = req.body
-        let cat = await Category.findById(category)
+        let {...data } = req.body
+        /* let cat = await Category.findById(category)
         if (!cat) return res.status(404).send(
             {
                 success: false,
                 message: 'Category not found'
             }
-        )
-        let product = new Product({ ...data, category: cat._id })
+        ) */
+        let product = new Product({ ...data })
         await product.save()
         return res.status(201).send({success: true, message: 'Product saved successfully', product})
     } catch (e) {

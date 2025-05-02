@@ -1,45 +1,44 @@
-import jwt from 'jsonwebtoken'
+'use strict'
 
-export const valideteJwt = (req, res, next) => {
-    try {
-        let secretKey = process.env.SECRET_KEY
-        let {authorization} = req.headers
-        if(!authorization)
-            return res.status(401).send(
-                {
-                    message: 'Unauthorized'
-                }
-        )
-        let user = jwt.verify(authorization, secretKey)
-        req.user = user
-        next()
+import jwt from 'jsonwebtoken'
+import { findUser } from '../utils/db.validator.js'
+
+export const validateJwt = async(req,res,next)=>{
+    try{
+        let secretKey=process.env.SECRET_KEY
+        let{authorization}=req.headers
+        if(!authorization)return res.status(401).send({message:'Unauthorized'})
+            let staff=jwt.verify(authorization,secretKey)
+            const validateUser=await findUser(staff.uid)
+            if(!validateUser)return res.status(404).send({
+                success:false,
+                message:'User not found-unauthorized'
+            })
+            req.staff=staff
+            next()
     }catch(e){
         console.error(e)
-        return res.status(401).send(
-            {
-                message: 'Invalid credentials'
-            }
-        )
-
+        return res.status(401).send({message:'Invalid Credentials'})
     }
 }
 
-export const isAdmin = async(req, res, next)=>{
+export const isAdmin=async(req,res,next)=>{
     try{
-        const {Staff} = req
-        if(!Staff || Staff.role !== 'ADMIN') return res.status(403).send(
+        const{staff}=req
+        if(!staff || staff.role !=='ADMIN') return res.status(403).send(
             {
-                success: false,
-                message: `You don't have access | username ${Staff.username}`
+                sucess:false,
+                message:`You dont have access | username: ${staff.name}`
             }
         )
         next()
     }catch(e){
-        console.error(e)
+        console.error
         return res.status(403).send(
             {
                 success: false,
-                message: 'Error with authorization'
+                message: 'Internal server error',
+                e
             }
         )
     }

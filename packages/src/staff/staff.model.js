@@ -23,11 +23,11 @@ const staffSchema = Schema(
             required: [true, 'Email is required'],
             unique: [true, 'This email already exists in database']
         },
-        passaword:{
+        password:{
             type: String,
             required: [true, 'Password is required'],
             minLength: [8, 'Password must be 8 characters'],
-            maxLength: [16, `Can't be overcome 16 characters`]
+            maxLength: [100, `Can't be overcome 16 characters`]
         },
         phone: {
             type: String,

@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "d7dcde0c-ea86-47f6-a86f-b27644a10bef",
+		"name": "Almacenadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956975"
+	},
+	"item": [
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed typo in function name\r",
+									"var data = pm.response.json();\r",
+									"postman.setGlobalVariable(\"token\", data.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "dmedina",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "!2Dm8888888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddEmployee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Josue",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Marroquin",
+									"type": "text"
+								},
+								{
+									"key": "CUI",
+									"value": "3014857690101",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jmarroquin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "shukodeEmp",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "85679143",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Josue",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Marroquin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "CUI",
+									"value": "3014857690101",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "jmarroquin@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "shukodeEmp",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "85679145",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateStaff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateStaff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "!2Dm8888888",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "!2Dm88811111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updatePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListEmployees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/getEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindEmployee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/getEmployeeById/6813f5c2608f15a82f3f3bed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getEmployeeById",
+								"6813f5c2608f15a82f3f3bed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "ProductStock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"ProductStock",
+								"68141ad25dd5e5b5e504bc98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductStock Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"ProductStock",
+								"68141ad25dd5e5b5e504bc98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductStock Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"ProductStock",
+								"68141ad25dd5e5b5e504bc98"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

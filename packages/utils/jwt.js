@@ -1,3 +1,4 @@
+'use strict'
 import jwt from 'jsonwebtoken'
 
 export const generateJwt = async(payload)=>{

@@ -4,9 +4,11 @@ import helmet from "helmet";
 import cors from 'cors'
 import categoryRoutes from '../src/category/category.routes.js'
 import clientsRoutes from '../src/clients/clients.routes.js'
-import employeeRoutes from '../src/clients/clients.routes.js'
+import employeeRoutes from '../src/employee/employee.routes.js'
 import productsRoutes from '../src/products/products.routes.js'
 import suppliersRoutes from '../src/suppliers/supliers.routes.js'
+import authRoutes from '../src/auth/auth.routes.js'
+import inventoryRoutes from '../src/inventory/invetory.routes.js'
 
 const configs = (app)=>{
     app.use(express.json())
@@ -22,6 +24,8 @@ const routes = (app)=>{
     app.use(employeeRoutes)
     app.use(productsRoutes)
     app.use(suppliersRoutes)
+    app.use(authRoutes)
+    app.use(inventoryRoutes)
 }
 
 export const initServer = ()=>{
