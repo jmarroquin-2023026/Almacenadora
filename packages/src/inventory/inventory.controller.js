@@ -100,7 +100,7 @@ export const registerExit=async(req,res)=>{
         const product=await Product.findById(productId)
         const employee=await Employee.findById(employeeId)
         if(!product || !employee){
-            return res.status(404).send(
+            return res.status(404).send(    
                 {
                     success:false,
                     message: !product ? 'Producto not found' : 'Employee not found'
