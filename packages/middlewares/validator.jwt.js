@@ -43,3 +43,32 @@ export const isAdmin=async(req,res,next)=>{
         )
     }
 }
+
+export const isAdminOrClient=async (req,res,next) =>{
+    try {
+        const {staff} = req
+        if (!staff){
+            return res.status(403).send({
+                success: false,
+                message: 'No user data found in request'
+            })
+        }
+        if (staff.role === 'ADMIN' || staff.role === 'EMPLOYEE') {
+            return next()
+        }
+        return res.status(403).send({
+            success: false,
+            message: `Access denied`
+        });
+
+    } catch (e) {
+        console.error('Internal serverl Error', e);
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'Internal server error',
+                e
+            }
+        )
+    }
+}
