@@ -94,7 +94,7 @@
 								},
 								{
 									"key": "password",
-									"value": "shukodeEmp",
+									"value": "shukodeEmp1@",
 									"type": "text"
 								},
 								{
@@ -134,26 +134,35 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Diego",
+									"value": "Josue",
 									"type": "text"
 								},
 								{
 									"key": "surname",
 									"value": "Marroquin",
+									"type": "text"
+								},
+								{
+									"key": "CUI",
+									"value": "3013957690101",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "email",
 									"value": "jmarroquin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "shukodeEmp1@",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "phone",
-									"value": "85679145",
-									"type": "text",
-									"disabled": true
+									"value": "85679144",
+									"type": "text"
 								}
 							]
 						},
@@ -187,7 +196,7 @@
 							"urlencoded": [
 								{
 									"key": "oldPassword",
-									"value": "shukode",
+									"value": "Shukode!1",
 									"type": "text"
 								},
 								{
@@ -255,7 +264,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:2636/getEmployeeById/681687c5f6b5e07b4adca0f3",
+							"raw": "http://localhost:2636/getEmployeeById/681810fc78e3a52079470ac9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -263,7 +272,7 @@
 							"port": "2636",
 							"path": [
 								"getEmployeeById",
-								"681687c5f6b5e07b4adca0f3"
+								"681810fc78e3a52079470ac9"
 							]
 						}
 					},
@@ -285,7 +294,7 @@
 							"urlencoded": [
 								{
 									"key": "password",
-									"value": "shukodeEmp",
+									"value": "shukodeEmp1@",
 									"type": "text"
 								}
 							]
@@ -299,6 +308,157 @@
 							"port": "2636",
 							"path": [
 								"deleteStaff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "AddCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/getCateogries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCateogries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/getCategory/68182376cd5ff35e2dd0e69a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCategory",
+								"68182376cd5ff35e2dd0e69a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Comestibles",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Productos destinados al entretenimiento",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateCategory/68182376cd5ff35e2dd0e69a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateCategory",
+								"68182376cd5ff35e2dd0e69a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/deleteCategory/68182555ca77c13060aaa173",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteCategory",
+								"68182555ca77c13060aaa173"
 							]
 						}
 					},
@@ -658,7 +818,59 @@
 					"name": "Entries",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "Entry",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-03",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "Compra de producto",
+									"type": "text"
+								},
+								{
+									"key": "productId",
+									"value": "68168ccbb23f1c317abad6c0",
+									"type": "text"
+								},
+								{
+									"key": "employeeId",
+									"value": "681690da00bdbbe46a16fda4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/entries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"entries"
+							]
+						}
 					},
 					"response": []
 				},
@@ -723,7 +935,10 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "AllMoventsOfOneProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -733,8 +948,12 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
 						"url": {
-							"raw": "http://localhost:2636/productMovement/68168ccbb23f1c317abad6c0",
+							"raw": "http://localhost:2636/productMovement/68168a4f00595ccff46d9fd5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -742,158 +961,7 @@
 							"port": "2636",
 							"path": [
 								"productMovement",
-								"68168ccbb23f1c317abad6c0"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Category",
-			"item": [
-				{
-					"name": "AddCategory",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Comestibles",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Productos comestibles para su consumo",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:2636/addCategory",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "2636",
-							"path": [
-								"addCategory"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listCategories",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:2636/getCateogries",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "2636",
-							"path": [
-								"getCateogries"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "findCategory",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:2636/getCategory/681689e700595ccff46d9fd0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "2636",
-							"path": [
-								"getCategory",
-								"681689e700595ccff46d9fd0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "updateCategory",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Diversion",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Productos destinados al entretenimiento",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:2636/updateCategory/681689e700595ccff46d9fd0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "2636",
-							"path": [
-								"updateCategory",
-								"681689e700595ccff46d9fd0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteCategory",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:2636/deleteCategory/681689e700595ccff46d9fd0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "2636",
-							"path": [
-								"deleteCategory",
-								"681689e700595ccff46d9fd0"
+								"68168a4f00595ccff46d9fd5"
 							]
 						}
 					},

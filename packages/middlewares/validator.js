@@ -1,17 +1,23 @@
 import { body } from "express-validator"
-import {existEmail, existUsername, notRequiredField, objetctIdValid } from '../utils/db.validator.js'
+import {existCategory, existCUI, existEmail, existPhone, existProduct, existUsername, notRequiredField, objetctIdValid } from '../utils/db.validator.js'
 import { validateErrors, validateErrorsWhitoutFiles } from "./validate.errors.js"
 
 //Usuario
 export const registerValidator = [
     body('name', 'Name cannot be empty')
+        .toLowerCase()
         .notEmpty(),
     body('surname', 'Surname cannot be empty')
+        .toLowerCase()
         .notEmpty(),
     body('email', 'Email cannot be empty')
+        .toLowerCase()
         .notEmpty()
         .isEmail()
-        .custom(existEmail),    
+        .custom(existEmail), 
+    body('CUI','CUI cannot be empty')
+        .notEmpty()
+        .custom(existCUI),   
     body('password', 'Password cannot be empty')
         .notEmpty()
         .isStrongPassword()
@@ -20,8 +26,49 @@ export const registerValidator = [
         .withMessage('Password be min 8 chacarcters'),
     body('phone', 'Phone cannot be empty')
         .notEmpty()
-        .isMobilePhone(),   
+        .isMobilePhone()
+        .custom(existPhone),   
     validateErrors
+]
+
+export const categoryValidator=[
+    body('name','Name cannot be empty').notEmpty().custom(existCategory),
+    validateErrors
+]
+export const categoryUpdateValidator=[
+    body('name',).notEmpty().optional().custom((category,{req})=>existCategory(category,{_id:req.params.id})),
+    body('decription').notEmpty().optional(),
+    validateErrors
+]
+
+export const updateStaffValidator=[
+    body('name')
+        .notEmpty()
+        .toLowerCase()
+        .optional(),
+    body('surname')
+        .notEmpty()
+        .toLowerCase()
+        .optional(),
+    body('email')
+        .notEmpty()
+        .isEmail()
+        .custom((email, {req})=>existEmail(email, req.staff)),
+    body('CUI','CUI cannot be empty')
+        .notEmpty()
+        .optional()
+        .custom(notRequiredField),   
+    body('password')
+        .notEmpty()
+        .optional()
+        .custom(notRequiredField),
+    body('phone')
+        .notEmpty()
+        .isMobilePhone()
+        .optional()
+        .custom((phone, { req }) => existPhone(phone, req.staff)),
+   
+    validateErrorsWhitoutFiles
 ]
 
 export const updateUSerValidator = [
@@ -48,18 +95,32 @@ export const updateUSerValidator = [
 ]
 
 //Producto
-export const addProduct = [
+export const addProductValidator = [
     body('name', 'Name cannot be empty')
-        .notEmpty(),
+        .notEmpty()
+        .toLowerCase()
+        .custom(existProduct),
     body('description', 'Description cannot be empty')
         .notEmpty()
         .isLength({max:50}),
     body('price','Price cannot be empty')
         .notEmpty(),
     body('category','Category not exist')
-        .notEmpty()
-        .custom(objetctIdValid),
+        .notEmpty(),
     body('stock','Stock cannot be empty')
         .notEmpty(),
+    body('expirationDate')
+    .optional(),
+    validateErrors
+]
+
+export const productUpdateValidator=[
+    body('name','Name cannot be empty').notEmpty().toLowerCase().custom(existProduct),
+    body('description','Description cannot be empty').notEmpty(),
+    body('price','Price cannot be empty').notEmpty(),
+    body('category','Category cannot be empty').notEmpty(),
+    body('stock','Stock cannot be empty').notEmpty(),
+    body('expirationDate')
+    .optional(),
     validateErrors
 ]

@@ -139,19 +139,16 @@ export const registerExit=async(req,res)=>{
 
 export const inventoryOfProduct = async (req, res) => {
   try {
-    /* const { productId } = req.params;
-    const movement1 = await Movement.find(); // sin filtro
-    console.log('Product ID:', productId)
-console.log(movement1);
-    const movement = await Movement.find({ product: productId }) // <--- CAMBIADO
-      .populate('employee', 'name surname')
-      .populate('product', 'name')
-      .sort({ date: -1 });
+     const { id } = req.params;
+     const movement1 = await Movement.find()
+     .populate('employee', 'name surname -_id')
+     .populate('product', 'name -_id')
+     .sort({ date: -1 })
 
-    res.status(200).send({
+    return res.status(200).send({
       success: true,
-      movement
-    });*/
+      movement1
+    });
   } catch (e) {
         console.error(e)
         return res.status(500).send({message:'Internal server error', error:e})

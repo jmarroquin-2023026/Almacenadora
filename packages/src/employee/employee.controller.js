@@ -4,6 +4,7 @@ import Staff from '../staff/staff.model.js'
 export const addEmployee = async(req, res) =>{
     try{
         let data = req.body
+        console.log("Datos recibidos:", data); 
         let staff = new Staff(data)
         staff.password=await encrypt(staff.password)
         staff.role='EMPLOYEE'

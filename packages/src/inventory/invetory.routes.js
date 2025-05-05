@@ -10,7 +10,7 @@ api.get('/totalStock', [validateJwt,isAdmin],avaliableStock)
 api.get('/stockValue',[validateJwt,isAdmin],TotalPriceInventory)
 api.post('/entries',[validateJwt,isAdminOrClient],registerEntry)
 api.post('/exists',[validateJwt,isAdminOrClient],registerExit)
-api.get('/productMovement/:productId',[validateJwt,isAdminOrClient],inventoryOfProduct)
+api.get('/productMovement/:id',[validateJwt,isAdminOrClient],inventoryOfProduct)
 api.get('/movements',[validateJwt,isAdminOrClient],inventoryMovements)
 
 export default api
