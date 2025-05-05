@@ -2,33 +2,77 @@ import { body } from "express-validator"
 import {existCategory, existCUI, existEmail, existPhone, existProduct, existUsername, notRequiredField, objetctIdValid } from '../utils/db.validator.js'
 import { validateErrors, validateErrorsWhitoutFiles } from "./validate.errors.js"
 
-//Usuario
-export const registerValidator = [
+
+export const registerUserValidator = [
+    body('company', 'Company cannot be empty')
+        .isLength({max: 40})
+        .toLowerCase()
+        .notEmpty(),
     body('name', 'Name cannot be empty')
-        .toLowerCase()
-        .notEmpty(),
+        .notEmpty()
+        .isLength({max: 25})
+        .whitMessage(`Name can't overcome 25 characters`),
     body('surname', 'Surname cannot be empty')
-        .toLowerCase()
-        .notEmpty(),
+        .notEmpty()
+        .isLength({max: 25})
+        .whitMessage(`Name can't overcome 25 characters`),
     body('email', 'Email cannot be empty')
-        .toLowerCase()
         .notEmpty()
         .isEmail()
-        .custom(existEmail), 
-    body('CUI','CUI cannot be empty')
-        .notEmpty()
-        .custom(existCUI),   
-    body('password', 'Password cannot be empty')
-        .notEmpty()
-        .isStrongPassword()
-        .withMessage('Passwrod must be strong')
-        .isLength({min:8})  
-        .withMessage('Password be min 8 chacarcters'),
+        .custom(existEmail).
+        toLowerCase(),    
     body('phone', 'Phone cannot be empty')
         .notEmpty()
-        .isMobilePhone()
-        .custom(existPhone),   
-    validateErrors
+        .isLength({max: 8})
+        .whitMessage(`Phone number can't overcome 8 characters`)
+        .isMobilePhone(),
+    body('address', 'Address cannot be empty')
+        .notEmpty()
+        .isLength({max: 256})
+        .whitMessage(`Addres can't overcome 256 characters`),
+    body('role', 'Role cannot be empty')
+        .notEmpty()
+        .toUpperCase(),    
+    validateErrorsWhitoutFiles
+]
+
+export const updateUSerValidator = [
+    body('company')
+        .optional()
+        .toLowerCase()
+        .custom((company, { req })=> existCompany(company, req.user)),
+    body('name', 'Name cannot be empty')
+        .optional()
+        .notEmpty()
+        .isLength({max: 25})
+        .whitMessage(`Name can't overcome 25 characters`),
+    body('surname', 'Surname cannot be empty')
+        .optional()
+        .notEmpty()
+        .isLength({max: 25})
+        .whitMessage(`Name can't overcome 25 characters`),
+    body('email')
+        .optional()
+        .notEmpty()
+        .isEmail()
+        .custom((email, {req})=> existEmail(email, req.user)),
+    body('phone', 'Phone cannot be empty')
+        .optional()
+        .notEmpty()
+        .isLength({max: 8})
+        .whitMessage(`Phone number can't overcome 8 characters`)
+        .isMobilePhone(),
+    body('address', 'Address cannot be empty')
+        .optional()
+        .notEmpty()
+        .isLength({max: 256})
+        .whitMessage(`Addres can't overcome 256 characters`),
+    body('role', 'Role cannot be empty')
+        .optional()
+        .notEmpty()
+        .toUpperCase()
+        .custom(notRequiredField),    
+    validateErrorsWhitoutFiles
 ]
 
 export const categoryValidator=[
@@ -71,28 +115,6 @@ export const updateStaffValidator=[
     validateErrorsWhitoutFiles
 ]
 
-export const updateUSerValidator = [
-    body('username')
-        .optional()
-        .notEmpty()
-        .toLowerCase()
-        .custom((username, { req })=> existUsername(username, req.user)),
-    body('email')
-        .optional()
-        .notEmpty()
-        .isEmail()
-        .custom((email, {req})=> existEmail(email, req.user)),
-    body('password')
-        .optional()
-        .custom(notRequiredField),
-    body('profilePicture')
-        .optional()
-        .custom(notRequiredField),
-    body('role')
-        .optional()
-        .custom(notRequiredField),
-    validateErrorsWhitoutFiles
-]
 
 //Producto
 export const addProductValidator = [

@@ -5,9 +5,9 @@ import { isAdmin } from "../../middlewares/validator.jwt.js";
 const api = Router()
 
 api.get('/getSuppliers', getSuppliers)
-api.get('/getSupplierById', getSupplierById)
+api.get('/getSupplierById/:id', getSupplierById)
 api.post('addSupplier', addSupplier)
-api.put('/updateSupplier', [updateSupplier, isAdmin])
-api.delete('/deleteSupplier', [deleteSupplier, isAdmin])
+api.put('/updateSupplier/:id', [updateSupplier, isAdmin])
+api.delete('/deleteSupplier/:id', [deleteSupplier, isAdmin])
 
 export default api
