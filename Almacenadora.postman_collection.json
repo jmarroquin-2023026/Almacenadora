@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d7dcde0c-ea86-47f6-a86f-b27644a10bef",
+		"_postman_id": "0f93e918-8bc5-4dcb-b0f0-f7b8b0b5ec4a",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37956975"
+		"_exporter_id": "37957136"
 	},
 	"item": [
 		{
@@ -39,7 +39,7 @@
 								},
 								{
 									"key": "password",
-									"value": "shukode1",
+									"value": "shukode",
 									"type": "text"
 								}
 							]
@@ -972,6 +972,470 @@
 		{
 			"name": "Users",
 			"item": []
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "ListClients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/getClients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getClients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListClientsById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/getClientById/68183c5cc9d71ab518715f7b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getClientById",
+								"68183c5cc9d71ab518715f7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddClient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Diego",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Merlina",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dmerlina@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "46559829",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Kinal",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "7 ave 7 calle",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "CLIENT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addClient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addClient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateClient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Diego",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Merlina",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dmerlina@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "46559829",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Coperex",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "7 ave 7 calle",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateClient/68183cc4c9d71ab518715f80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateClient",
+								"68183cc4c9d71ab518715f80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmployee Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "shukode",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/deleteClient/68183cc4c9d71ab518715f80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteClient",
+								"68183cc4c9d71ab518715f80"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients Copy",
+			"item": [
+				{
+					"name": "ListSuppliers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/getSuppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getSuppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListClientsById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/getSupplierById/681841e0eb32556051dd63aa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getSupplierById",
+								"681841e0eb32556051dd63aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddSupplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Ricardo",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Martin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rmartin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "46583698",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Coperex",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "7 ave 7 calle",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "SUPPLIER",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addSupplier",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addSupplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateClient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Diego",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Merlina",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dmerlina@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "46559829",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Coperex",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "7 ave 7 calle",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateSupplier/681841e0eb32556051dd63aa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateSupplier",
+								"681841e0eb32556051dd63aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmployee Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "shukodeEmp1@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/deleteSupplier/681841e0eb32556051dd63aa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteSupplier",
+								"681841e0eb32556051dd63aa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
