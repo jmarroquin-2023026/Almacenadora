@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema,model } from "mongoose";
 
 const inventorySchema=Schema({
     type:{
@@ -20,7 +20,7 @@ const inventorySchema=Schema({
     },
     product:{
         type:Schema.Types.ObjectId,
-        ref:'Products',
+        ref:'Product',
         required:[true,'Product is required']
     },
     employee:{

@@ -16,7 +16,6 @@ const staffSchema = Schema(
             type: String,
             required: [true, 'DPI number is required'],
             maxLength: [13, `Can't be overcome 13 characters`],
-            unique: [true, 'This DPI number is arleay in data base']
         },
         email: {
             type: String, 
@@ -27,7 +26,6 @@ const staffSchema = Schema(
             type: String,
             required: [true, 'Password is required'],
             minLength: [8, 'Password must be 8 characters'],
-            maxLength: [100, `Can't be overcome 16 characters`]
         },
         phone: {
             type: String,

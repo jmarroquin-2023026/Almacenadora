@@ -33,13 +33,13 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "userLoggin",
-									"value": "dmedina",
+									"key": "userLogin",
+									"value": "admin@shukode.com.gt",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "!2Dm8888888",
+									"value": "shukode1",
 									"type": "text"
 								}
 							]
@@ -84,7 +84,7 @@
 								},
 								{
 									"key": "CUI",
-									"value": "3014857690101",
+									"value": "3013857690101",
 									"type": "text"
 								},
 								{
@@ -94,7 +94,7 @@
 								},
 								{
 									"key": "password",
-									"value": "shukodeEmp",
+									"value": "shukodeEmp1@",
 									"type": "text"
 								},
 								{
@@ -140,32 +140,29 @@
 								{
 									"key": "surname",
 									"value": "Marroquin",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "CUI",
-									"value": "3014857690101",
+									"value": "3013957690101",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "email",
 									"value": "jmarroquin@gmail.com",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "shukodeEmp",
+									"value": "shukodeEmp1@",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "phone",
-									"value": "85679145",
-									"type": "text",
-									"disabled": true
+									"value": "85679144",
+									"type": "text"
 								}
 							]
 						},
@@ -184,7 +181,7 @@
 					"response": []
 				},
 				{
-					"name": "updatePassword Copy",
+					"name": "updatePassword",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -199,12 +196,12 @@
 							"urlencoded": [
 								{
 									"key": "oldPassword",
-									"value": "!2Dm8888888",
+									"value": "Shukode!1",
 									"type": "text"
 								},
 								{
 									"key": "newPassword",
-									"value": "!2Dm88811111",
+									"value": "shukode1",
 									"type": "text"
 								}
 							]
@@ -267,7 +264,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:2636/getEmployeeById/6813f5c2608f15a82f3f3bed",
+							"raw": "http://localhost:2636/getEmployeeById/681810fc78e3a52079470ac9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -275,17 +272,195 @@
 							"port": "2636",
 							"path": [
 								"getEmployeeById",
-								"6813f5c2608f15a82f3f3bed"
+								"681810fc78e3a52079470ac9"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "DeleteEmployee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "shukodeEmp1@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/deleteStaff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteStaff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "AddCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCategories",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/getCateogries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCateogries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/getCategory/68182376cd5ff35e2dd0e69a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCategory",
+								"68182376cd5ff35e2dd0e69a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Comestibles",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Productos destinados al entretenimiento",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateCategory/68182376cd5ff35e2dd0e69a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateCategory",
+								"68182376cd5ff35e2dd0e69a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/deleteCategory/68182555ca77c13060aaa173",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteCategory",
+								"68182555ca77c13060aaa173"
+							]
+						}
 					},
 					"response": []
 				}
@@ -295,10 +470,265 @@
 			"name": "Products",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "AddProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Carton de leche",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cartón de 1 litro",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "dos pinos",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "68168a4f00595ccff46d9fd5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/addProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/deleteProduct/68168c5200595ccff46d9fe8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteProduct",
+								"68168c5200595ccff46d9fe8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Cartón de huevos",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cartón de 24 huevos orgánicos",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "El corral",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "68168a4f00595ccff46d9fd5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/updateProduct/68168ccbb23f1c317abad6c0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateProduct",
+								"68168ccbb23f1c317abad6c0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCategory",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/productsByCategory/68168a4f00595ccff46d9fd5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"productsByCategory",
+								"68168a4f00595ccff46d9fd5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByName",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/productsByName/carton de leche",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"productsByName",
+								"carton de leche"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/listOfProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"listOfProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DateRegister",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "2025-05-03",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/movements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"movements"
+							]
+						}
 					},
 					"response": []
 				}
@@ -308,12 +738,25 @@
 			"name": "Inventory",
 			"item": [
 				{
-					"name": "ProductStock",
+					"name": "StockAndFindPoduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
 						"url": {
-							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"raw": "http://localhost:2636/ProductStock/68168d0bd908772d52286ba9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -321,53 +764,214 @@
 							"port": "2636",
 							"path": [
 								"ProductStock",
-								"68141ad25dd5e5b5e504bc98"
+								"68168d0bd908772d52286ba9"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "ProductStock Copy",
+					"name": "TotalValue",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"raw": "http://localhost:2636/stockValue",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
-								"ProductStock",
-								"68141ad25dd5e5b5e504bc98"
+								"stockValue"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "ProductStock Copy",
+					"name": "TotalStock",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:2636/ProductStock/68141ad25dd5e5b5e504bc98",
+							"raw": "http://localhost:2636/totalStock",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
-								"ProductStock",
-								"68141ad25dd5e5b5e504bc98"
+								"totalStock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "Entry",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-03",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "Compra de producto",
+									"type": "text"
+								},
+								{
+									"key": "productId",
+									"value": "68168ccbb23f1c317abad6c0",
+									"type": "text"
+								},
+								{
+									"key": "employeeId",
+									"value": "681690da00bdbbe46a16fda4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/entries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"entries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "Exit",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-03",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "Productos proximos a caducar",
+									"type": "text"
+								},
+								{
+									"key": "productId",
+									"value": "68168ccbb23f1c317abad6c0",
+									"type": "text"
+								},
+								{
+									"key": "employeeId",
+									"value": "681690da00bdbbe46a16fda4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/exists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"exists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllMoventsOfOneProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/productMovement/68168a4f00595ccff46d9fd5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"productMovement",
+								"68168a4f00595ccff46d9fd5"
 							]
 						}
 					},
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Users",
+			"item": []
 		}
 	]
 }
